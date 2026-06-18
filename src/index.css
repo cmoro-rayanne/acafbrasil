@@ -172,3 +172,36 @@ body {
   -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
+/* FLASHLIGHT HOVER EFFECT (GLASS SHINE) */
+.flashlight-card {
+  position: relative;
+  overflow: hidden;
+}
+.flashlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  background: radial-gradient(300px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+          rgba(255, 255, 255, 0.4),
+          transparent 45%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  z-index: 1;
+}
+.flashlight-card.dark-card::before {
+  background: radial-gradient(300px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+          rgba(255, 255, 255, 0.12),
+          transparent 45%);
+}
+.flashlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Ensure contents are above the flashlight shine */
+.flashlight-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+

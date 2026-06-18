@@ -2,6 +2,15 @@ import React from 'react';
 import { ShieldCheck, TrendingUp, Landmark, ArrowUpRight } from 'lucide-react';
 
 export const Hero: React.FC = () => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  };
+
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden border-b border-acaf-forest/10 py-12 md:py-24">
       
@@ -30,7 +39,7 @@ export const Hero: React.FC = () => {
 
           {/* Subtitle */}
           <p className="text-[19px] sm:text-[21px] text-acaf-sage max-w-xl mb-10 font-normal leading-relaxed">
-            A ACAF Brasil representa academias, estúdios e box em todo o país com voz unificada, conhecimento técnico e benefícios exclusivos para associados.
+            A ACAF Brasil representa academias, estúdios e box em todo o país com voice unificada, conhecimento técnico e benefícios exclusivos para associados.
           </p>
 
           {/* Action Buttons */}
@@ -71,7 +80,10 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Floating Card 1: Benefícios (Top-Left) */}
-          <div className="absolute top-6 left-4 bg-acaf-forest border border-white/10 p-5 rounded-xl shadow-lg shadow-acaf-forest/20 w-64 animate-float text-white">
+          <div 
+            onMouseMove={handleMouseMove}
+            className="absolute top-6 left-4 bg-acaf-forest/80 backdrop-blur-md border border-white/20 p-6 rounded-xl shadow-lg shadow-acaf-forest/20 w-[300px] animate-float text-white flashlight-card dark-card group cursor-default"
+          >
             <div className="flex items-center gap-2 mb-3">
               <div className="p-2 bg-white/10 rounded-lg text-[#FAF9F6]">
                 <ShieldCheck className="w-5 h-5 text-acaf-coral" />
@@ -80,7 +92,7 @@ export const Hero: React.FC = () => {
                 Benefícios
               </h4>
             </div>
-            <ul className="space-y-1.5 text-[12px] text-white/95 font-light">
+            <ul className="space-y-1.5 text-[14px] text-white/95 font-light">
               <li className="flex items-center gap-1.5">
                 <span className="w-1 h-1 bg-[#C5A880] rounded-full shrink-0"></span>
                 <span>Representatividade política</span>
@@ -109,7 +121,10 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Floating Card 2: Associados (Bottom-Right) */}
-          <div className="absolute bottom-8 right-4 bg-white/75 backdrop-blur-md border border-acaf-forest/10 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-64 animate-float-slow">
+          <div 
+            onMouseMove={handleMouseMove}
+            className="absolute bottom-8 right-4 bg-white/60 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-64 animate-float-slow flashlight-card group cursor-default"
+          >
             <div className="flex items-center justify-between mb-3">
               <div className="p-2 bg-acaf-forest/5 rounded-lg text-acaf-forest">
                 <TrendingUp className="w-5 h-5" />
@@ -141,7 +156,10 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Floating Card 3: Parceiros (Center-Right) */}
-          <div className="absolute top-1/3 -right-2 bg-white/75 backdrop-blur-md border border-acaf-forest/10 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-52 animate-float-delayed">
+          <div 
+            onMouseMove={handleMouseMove}
+            className="absolute top-1/3 -right-2 bg-white/60 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-52 animate-float-delayed flashlight-card group cursor-default"
+          >
             <div className="flex items-center justify-between mb-3">
               <div className="p-2 bg-acaf-forest/5 rounded-lg text-acaf-forest">
                 <Landmark className="w-5 h-5" />
