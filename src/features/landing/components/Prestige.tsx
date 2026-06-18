@@ -9,8 +9,20 @@ interface StatItemProps {
 }
 
 const StatItem: React.FC<StatItemProps> = ({ icon, value, label, sublabel }) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  };
+
   return (
-    <div className="flex flex-col items-center text-center p-8 border border-acaf-forest/5 hover:border-acaf-forest/20 hover:bg-white/40 transition-colors duration-500 rounded-xl">
+    <div 
+      onMouseMove={handleMouseMove}
+      className="flex flex-col items-center text-center p-8 border border-acaf-forest/5 hover:border-acaf-forest/20 hover:bg-white/40 transition-colors duration-500 rounded-xl flashlight-card"
+    >
       <div className="w-10 h-10 rounded-full bg-acaf-forest/5 text-acaf-forest flex items-center justify-center mb-6">
         {icon}
       </div>

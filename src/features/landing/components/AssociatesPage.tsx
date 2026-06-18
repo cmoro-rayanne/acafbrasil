@@ -305,6 +305,15 @@ export const AssociatesPage: React.FC = () => {
     }
   };
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  };
+
   // Clear filters helper
   const handleClearAll = () => {
     setSearchQuery('');
@@ -490,7 +499,8 @@ export const AssociatesPage: React.FC = () => {
               {paginatedAssociates.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-white border border-acaf-forest/10 p-6 flex flex-col justify-between hover:border-acaf-forest/30 hover:shadow-md transition-all duration-300 group"
+                  onMouseMove={handleMouseMove}
+                  className="bg-white border border-acaf-forest/10 p-6 flex flex-col justify-between hover:border-acaf-forest/30 hover:shadow-md transition-all duration-300 group flashlight-card"
                 >
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-4">

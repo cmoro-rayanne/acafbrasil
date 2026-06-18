@@ -10,8 +10,20 @@ interface ObjectiveCardProps {
 }
 
 const ObjectiveCard: React.FC<ObjectiveCardProps> = ({ number, icon, title, description, highlightTag }) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  };
+
   return (
-    <div className="group relative bg-[#FAF9F6] border border-acaf-forest/10 p-8 flex flex-col justify-between hover:border-acaf-forest transition-all duration-500 hover:shadow-xl hover:shadow-acaf-forest/5 hover:-translate-y-1">
+    <div 
+      onMouseMove={handleMouseMove}
+      className="group relative bg-[#FAF9F6] border border-acaf-forest/10 p-8 flex flex-col justify-between hover:border-acaf-forest transition-all duration-500 hover:shadow-xl hover:shadow-acaf-forest/5 hover:-translate-y-1 flashlight-card"
+    >
       
       {/* Number details */}
       <div className="absolute top-4 right-4 text-[10px] font-mono text-acaf-sage opacity-50 group-hover:opacity-100 transition-opacity">

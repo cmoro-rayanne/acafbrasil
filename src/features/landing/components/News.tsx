@@ -12,8 +12,20 @@ export interface NewsCardProps {
 }
 
 export const NewsCard: React.FC<NewsCardProps> = ({ id, image, date, tag, title, description }) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  };
+
   return (
-    <div className="group flex flex-col bg-white rounded-md overflow-hidden border border-[#0D3C1F]/10 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1.5 hover:shadow-xl h-full">
+    <div 
+      onMouseMove={handleMouseMove}
+      className="group flex flex-col bg-white rounded-md overflow-hidden border border-[#0D3C1F]/10 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1.5 hover:shadow-xl h-full flashlight-card"
+    >
       {/* Image Header */}
       <div className="relative aspect-[16/10] overflow-hidden">
         <img 

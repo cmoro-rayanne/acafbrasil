@@ -63,8 +63,20 @@ export const PartnerCard: React.FC<PartnerCardProps> = ({
   city,
   state
 }) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  };
+
   return (
-    <div className="group relative flex flex-col bg-white rounded-md overflow-hidden transition-all duration-500 ease-out hover:scale-[1.03] hover:-translate-y-2 hover:shadow-2xl border border-[#0D3C1F]/10 h-full">
+    <div 
+      onMouseMove={handleMouseMove}
+      className="group relative flex flex-col bg-white rounded-md overflow-hidden transition-all duration-500 ease-out hover:scale-[1.03] hover:-translate-y-2 hover:shadow-2xl border border-[#0D3C1F]/10 h-full flashlight-card"
+    >
       {/* Top Container: White background with partner conceptual image */}
       <div className="relative aspect-[4/3] bg-white border-b border-[#0D3C1F]/10 overflow-hidden">
         <img 

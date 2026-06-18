@@ -69,6 +69,15 @@ interface MarqueeRowProps {
 const MarqueeRow: React.FC<MarqueeRowProps> = ({ items, speed, direction }) => {
   const animationClass = direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right';
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  };
+
   return (
     <div className="flex overflow-hidden py-3 select-none">
       <div
@@ -78,7 +87,8 @@ const MarqueeRow: React.FC<MarqueeRowProps> = ({ items, speed, direction }) => {
         {items.map((item, idx) => (
           <div
             key={idx}
-            className="flex-shrink-0 font-mono text-[11px] md:text-xs tracking-widest text-[#F8FAF7]/60 uppercase px-6 py-2.5 border border-[#FAF9F6]/10 bg-[#FAF9F6]/5 hover:text-[#C5A880] hover:border-[#C5A880]/30 hover:bg-[#FAF9F6]/10 transition-all duration-300 cursor-default rounded-sm"
+            onMouseMove={handleMouseMove}
+            className="flex-shrink-0 font-mono text-[11px] md:text-xs tracking-widest text-[#F8FAF7]/60 uppercase px-6 py-2.5 border border-[#FAF9F6]/10 bg-[#FAF9F6]/5 hover:text-[#C5A880] hover:border-[#C5A880]/30 hover:bg-[#FAF9F6]/10 transition-all duration-300 cursor-default rounded-sm flashlight-card dark-card"
           >
             {item}
           </div>
@@ -87,7 +97,8 @@ const MarqueeRow: React.FC<MarqueeRowProps> = ({ items, speed, direction }) => {
         {items.map((item, idx) => (
           <div
             key={`dup-${idx}`}
-            className="flex-shrink-0 font-mono text-[11px] md:text-xs tracking-widest text-[#F8FAF7]/60 uppercase px-6 py-2.5 border border-[#FAF9F6]/10 bg-[#FAF9F6]/5 hover:text-[#C5A880] hover:border-[#C5A880]/30 hover:bg-[#FAF9F6]/10 transition-all duration-300 cursor-default rounded-sm"
+            onMouseMove={handleMouseMove}
+            className="flex-shrink-0 font-mono text-[11px] md:text-xs tracking-widest text-[#F8FAF7]/60 uppercase px-6 py-2.5 border border-[#FAF9F6]/10 bg-[#FAF9F6]/5 hover:text-[#C5A880] hover:border-[#C5A880]/30 hover:bg-[#FAF9F6]/10 transition-all duration-300 cursor-default rounded-sm flashlight-card dark-card"
           >
             {item}
           </div>
