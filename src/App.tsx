@@ -127,11 +127,6 @@ const App: React.FC = () => {
           <About />
         </div>
 
-        {/* Partners Section */}
-        <div className="reveal-up delay-100">
-          <Partners />
-        </div>
-
         {/* Solutions Section */}
         <div className="reveal-up delay-100">
           <Solutions />
@@ -155,6 +150,11 @@ const App: React.FC = () => {
         {/* Contact Section */}
         <div className="reveal-up delay-100">
           <Contact />
+        </div>
+
+        {/* Partners Section */}
+        <div className="reveal-up delay-100">
+          <Partners />
         </div>
       </main>
 

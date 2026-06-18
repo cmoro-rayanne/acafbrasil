@@ -1,104 +1,93 @@
 import React from 'react';
-import { Layers, FileSearch, ShieldCheck, BarChart4, ArrowUpRight } from 'lucide-react';
+import { Scale, Shield, Users, Handshake } from 'lucide-react';
 
-interface SolutionCardProps {
+interface ObjectiveCardProps {
   number: string;
   icon: React.ReactNode;
   title: string;
-  description: string;
-  features: string[];
+  description: React.ReactNode;
+  highlightTag: string;
 }
 
-const SolutionCard: React.FC<SolutionCardProps> = ({ number, icon, title, description, features }) => {
+const ObjectiveCard: React.FC<ObjectiveCardProps> = ({ number, icon, title, description, highlightTag }) => {
   return (
     <div className="group relative bg-[#FAF9F6] border border-acaf-forest/10 p-8 flex flex-col justify-between hover:border-acaf-forest transition-all duration-500 hover:shadow-xl hover:shadow-acaf-forest/5 hover:-translate-y-1">
       
-      {/* Visual background details */}
+      {/* Number details */}
       <div className="absolute top-4 right-4 text-[10px] font-mono text-acaf-sage opacity-50 group-hover:opacity-100 transition-opacity">
         {number}
       </div>
 
-      <div className="mb-8">
+      <div className="mb-6">
         {/* Icon container */}
         <div className="w-12 h-12 rounded-lg bg-acaf-forest/5 text-acaf-forest flex items-center justify-center mb-6 group-hover:bg-acaf-forest group-hover:text-acaf-sand transition-colors duration-500">
           {icon}
         </div>
 
         {/* Title */}
-        <h3 className="font-sans text-lg font-semibold text-acaf-forest mb-3 uppercase tracking-wider">
+        <h3 className="font-sans text-[17px] font-semibold text-acaf-forest mb-4 uppercase tracking-wider leading-snug">
           {title}
         </h3>
 
         {/* Description */}
-        <p className="text-[17px] text-acaf-sage leading-relaxed mb-6 font-light">
+        <div className="text-[15px] text-acaf-sage leading-relaxed font-light">
           {description}
-        </p>
-
-        {/* Features bullet list */}
-        <ul className="space-y-2 border-t border-acaf-forest/5 pt-4">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-center gap-2 text-[15px] text-acaf-sage">
-              <span className="w-1 h-1 bg-acaf-coral rounded-full"></span>
-              {feature}
-            </li>
-          ))}
-        </ul>
+        </div>
       </div>
 
-      {/* Button link */}
-      <div className="mt-8 flex items-center gap-1 text-[11px] font-mono uppercase tracking-widest text-acaf-forest group-hover:text-acaf-emerald transition-colors">
-        <span>Saiba mais</span>
-        <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      {/* Legal Reference Tag */}
+      <div className="mt-6 pt-4 border-t border-acaf-forest/5 flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-acaf-coral font-semibold">
+        <span>{highlightTag}</span>
       </div>
     </div>
   );
 };
 
 export const Solutions: React.FC = () => {
-  const solutions = [
+  const objectives = [
     {
-      number: "01 / FOCO EM CAPITAL",
-      icon: <Layers className="w-6 h-6" />,
-      title: "Fomento Estruturado",
-      description: "Aceleração estratégica de recebíveis e estruturação de operações financeiras sob medida para fortalecer o caixa corporativo.",
-      features: [
-        "Liquidez imediata sob taxas claras",
-        "Operações simplificadas via plataforma",
-        "Análise preditiva de crédito"
-      ]
+      number: "OBJETIVO 01",
+      icon: <Scale className="w-6 h-6" />,
+      title: "Representação Constitucional",
+      highlightTag: "Art. 103, IX, CF",
+      description: (
+        <p>
+          Defender os direitos inerentes a sua classe e subclasse em <strong>âmbito nacional</strong>, conforme regra prevista no <strong>art. 103, inc. IX da Constituição Federal</strong>.
+        </p>
+      )
     },
     {
-      number: "02 / BLINDAGEM OPERACIONAL",
-      icon: <FileSearch className="w-6 h-6" />,
-      title: "Auditoria Independente",
-      description: "Revisão meticulosa de processos, transações e conformidade contábil para garantir a transparência exigida pelo mercado.",
-      features: [
-        "Auditoria de balanço e conciliação",
-        "Mapeamento e mitigação de gargalos",
-        "Certificação de segurança fiscal"
-      ]
+      number: "OBJETIVO 02",
+      icon: <Shield className="w-6 h-6" />,
+      title: "Interesse Difuso & Defesa",
+      highlightTag: "Lei Federal 7.347/1985",
+      description: (
+        <p>
+          Defender os direitos inerentes à classe em situações de <strong>interesse difuso</strong> decorrentes do <strong>Código de Defesa do Consumidor</strong>, exercendo as prerrogativas da <strong>Lei Federal 7.347/1985</strong> em qualquer esfera jurídica, inclusive <strong>tributária</strong>.
+        </p>
+      )
     },
     {
-      number: "03 / RIGOR REGULATÓRIO",
-      icon: <ShieldCheck className="w-6 h-6" />,
-      title: "Conformidade & Compliance",
-      description: "Mapeamento regulatório sistemático para assegurar que a empresa atue alinhada a diretrizes de segurança, governança e ética.",
-      features: [
-        "Adequação a órgãos federais",
-        "Implementação rigorosa de LGPD",
-        "Código de ética e canal de denúncia"
-      ]
+      number: "OBJETIVO 03",
+      icon: <Users className="w-6 h-6" />,
+      title: "Promoção de Interesses",
+      highlightTag: "Relações Institucionais",
+      description: (
+        <p>
+          Promover os interesses coletivos da classe perante <strong>órgãos públicos e fiscalizadores</strong>, sindicatos, prestadores de serviço e o público em geral.
+        </p>
+      )
     },
     {
-      number: "04 / VISÃO ESTRATÉGICA",
-      icon: <BarChart4 className="w-6 h-6" />,
-      title: "Cultura de Transparência",
-      description: "Modelagem e divulgação de dados corporativos de forma transparente, fortalecendo a reputação da marca e gerando confiança.",
-      features: [
-        "Prestação de contas simplificada",
-        "Integração contínua de BI",
-        "Comunicação clara com investidores"
-      ]
+      number: "OBJETIVO 04",
+      icon: <Handshake className="w-6 h-6" />,
+      title: "União & Ética Corporativa",
+      highlightTag: "Compromisso de Expansão",
+      description: (
+        <p>
+          Manter a união agindo sempre de forma <strong>ética</strong>, imbuída da ideia de manter ativa sua participação, bem como, aumentar o quadro de associados com <strong>responsabilidade</strong>.
+        </p>
+      )
     }
   ];
 
@@ -115,24 +104,25 @@ export const Solutions: React.FC = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
-          <div className="max-w-xl">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-acaf-coral mb-4 block">
-              Nossos Pilares
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
+          <div className="max-w-2xl">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-acaf-coral mb-4 block font-semibold">
+              Propósito e Estatuto
             </span>
-            <h2 className="text-3xl md:text-4xl font-sans font-semibold text-acaf-forest leading-tight tracking-tight">
-              Soluções integradas para mitigar riscos e impulsionar o seu <span className="font-serif italic font-normal text-acaf-emerald">crescimento sustentável</span>.
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-acaf-forest leading-tight tracking-tight">
+              Objetivos da associação
             </h2>
+            <div className="w-16 h-[2.5px] bg-[#C5A880] mt-6"></div>
           </div>
-          <p className="text-[17px] text-acaf-sage max-w-xs mt-6 md:mt-0 leading-relaxed font-light">
-            Soluções completas desenhadas para responder com precisão às demandas de governança e fomento contemporâneas.
+          <p className="text-[17px] text-acaf-sage max-w-sm leading-relaxed font-light">
+            Conheça as diretrizes estatutárias que fundamentam nossa governança de conformidade e defesa jurídica institucional em todo o território nacional.
           </p>
         </div>
 
-        {/* Solutions Grid */}
+        {/* Objectives Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {solutions.map((sol, index) => (
-            <SolutionCard key={index} {...sol} />
+          {objectives.map((obj, index) => (
+            <ObjectiveCard key={index} {...obj} />
           ))}
         </div>
 
