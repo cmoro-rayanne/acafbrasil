@@ -323,7 +323,7 @@ export const Partners: React.FC = () => {
   };
 
   return (
-    <section id="parceiros" className="relative py-20 md:py-32 px-6 md:px-16 bg-[#F8FAF7] border-b border-acaf-forest/10 overflow-hidden reveal">
+    <section id="parceiros" className="relative py-20 md:py-32 px-6 md:px-16 bg-acaf-beige/30 border-b border-acaf-forest/10 overflow-hidden reveal">
       
       {/* Background Graphic Grid lines to maintain the architectural feel */}
       <div className="absolute inset-0 pointer-events-none opacity-5">
