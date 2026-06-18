@@ -125,7 +125,7 @@ export const Hero: React.FC = () => {
             onMouseMove={handleMouseMove}
             className="!absolute bottom-[2px] right-4 bg-[#D5DBD1]/90 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-[250px] animate-float-slow flashlight-card group cursor-default"
           >
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2 mb-3">
               <div className="p-2 bg-acaf-forest/5 rounded-lg text-acaf-forest">
                 <TrendingUp className="w-5 h-5" />
               </div>
@@ -133,12 +133,9 @@ export const Hero: React.FC = () => {
                 Crescimento
               </span>
             </div>
-            <h4 className="font-mono text-[13px] uppercase tracking-wider text-acaf-sage">
-              Associados
-            </h4>
             <div className="mt-1 flex items-baseline gap-1">
               <span className="text-4xl font-serif font-bold text-acaf-forest">+ 150</span>
-              <span className="text-[14px] font-mono text-acaf-sage/80 font-light ml-1">corporações</span>
+              <span className="text-[14px] font-mono text-acaf-sage/80 font-light ml-1">associados</span>
             </div>
             
             {/* Visual Mini Sparkline (SVG) */}
@@ -160,7 +157,7 @@ export const Hero: React.FC = () => {
             onMouseMove={handleMouseMove}
             className="!absolute top-1/3 left-[301px] bg-white/60 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-[200px] animate-float-delayed flashlight-card group cursor-default"
           >
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2 mb-3">
               <div className="p-2 bg-acaf-forest/5 rounded-lg text-[#0D3C1F]">
                 <Landmark className="w-5 h-5" />
               </div>
@@ -168,12 +165,9 @@ export const Hero: React.FC = () => {
                 Integração
               </span>
             </div>
-            <h4 className="font-mono text-[13px] uppercase tracking-wider text-acaf-sage">
-              Parceiros
-            </h4>
             <div className="mt-1 flex items-baseline gap-1">
               <span className="text-3xl font-serif font-bold text-acaf-forest">+50</span>
-              <span className="text-[12px] font-mono text-acaf-sage/80 font-light ml-1">marcas</span>
+              <span className="text-[12px] font-mono text-acaf-sage/80 font-light ml-1">parceiros</span>
             </div>
           </div>
 
