@@ -45,8 +45,8 @@ export const Header: React.FC = () => {
         <div className="flex items-center gap-4">
           <a
             href="#contato"
-            className="btn-slide-reveal inline-flex items-center justify-center border border-acaf-forest text-acaf-forest hover:text-acaf-forest px-5 py-2.5 text-[15px] font-mono uppercase tracking-[0.15em] transition-all"
-            style={{ '--slide-color': '#FAF9F6' } as React.CSSProperties}
+            className="btn-slide-reveal inline-flex items-center justify-center border border-acaf-forest text-acaf-forest px-5 py-2.5 text-[15px] font-mono uppercase tracking-[0.15em] transition-all"
+            style={{ '--slide-color': '#EAEFEB' } as React.CSSProperties}
           >
             Quero me Associar
           </a>

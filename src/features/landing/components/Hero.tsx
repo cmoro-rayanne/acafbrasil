@@ -70,43 +70,60 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Floating Card 1: Compliance Metric (Top-Left) */}
-          <div className="absolute top-6 left-4 bg-white/75 backdrop-blur-md border border-acaf-forest/10 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-60 animate-float">
-            <div className="flex items-center justify-between mb-3">
-              <div className="p-2 bg-acaf-forest/5 rounded-lg text-acaf-forest">
-                <ShieldCheck className="w-5 h-5" />
+          {/* Floating Card 1: Benefícios (Top-Left) */}
+          <div className="absolute top-6 left-4 bg-acaf-forest border border-white/10 p-5 rounded-xl shadow-lg shadow-acaf-forest/20 w-64 animate-float text-white">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="p-2 bg-white/10 rounded-lg text-[#FAF9F6]">
+                <ShieldCheck className="w-5 h-5 text-acaf-coral" />
               </div>
-              <span className="font-mono text-[13px] uppercase tracking-wider text-acaf-coral bg-acaf-coral/10 px-2 py-0.5 rounded-full font-semibold">
-                Ativo
-              </span>
+              <h4 className="font-mono text-[13px] uppercase tracking-wider text-acaf-coral font-semibold">
+                Benefícios
+              </h4>
             </div>
-            <h4 className="font-mono text-[13px] uppercase tracking-wider text-acaf-sage">
-              Índice de Conformidade
-            </h4>
-            <div className="flex items-baseline gap-1 mt-1">
-              <span className="text-3xl font-serif font-bold text-acaf-forest">99.8</span>
-              <span className="text-[17px] font-semibold text-acaf-forest">%</span>
-            </div>
-            <p className="text-[17px] text-acaf-sage mt-2 leading-relaxed">
-              Auditoria de risco mitigada em tempo real com conformidade absoluta.
-            </p>
+            <ul className="space-y-1.5 text-[12px] text-white/95 font-light">
+              <li className="flex items-center gap-1.5">
+                <span className="w-1 h-1 bg-[#C5A880] rounded-full shrink-0"></span>
+                <span>Representatividade política</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="w-1 h-1 bg-[#C5A880] rounded-full shrink-0"></span>
+                <span>Parcerias exclusivas</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="w-1 h-1 bg-[#C5A880] rounded-full shrink-0"></span>
+                <span>Capacitação técnica</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="w-1 h-1 bg-[#C5A880] rounded-full shrink-0"></span>
+                <span>Suporte jurídico</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="w-1 h-1 bg-[#C5A880] rounded-full shrink-0"></span>
+                <span>Rede de relacionamento</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="w-1 h-1 bg-[#C5A880] rounded-full shrink-0"></span>
+                <span>Selo de credibilidade</span>
+              </li>
+            </ul>
           </div>
 
-          {/* Floating Card 2: Fomento Allocations (Bottom-Right) */}
+          {/* Floating Card 2: Associados (Bottom-Right) */}
           <div className="absolute bottom-8 right-4 bg-white/75 backdrop-blur-md border border-acaf-forest/10 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-64 animate-float-slow">
             <div className="flex items-center justify-between mb-3">
-              <div className="p-2 bg-acaf-emerald/10 rounded-lg text-acaf-emerald">
+              <div className="p-2 bg-acaf-forest/5 rounded-lg text-acaf-forest">
                 <TrendingUp className="w-5 h-5" />
               </div>
-              <span className="font-mono text-[13px] text-acaf-emerald uppercase tracking-wider">
-                Fluxo Alocado
+              <span className="font-mono text-[13px] text-acaf-coral uppercase tracking-wider font-semibold">
+                Crescimento
               </span>
             </div>
             <h4 className="font-mono text-[13px] uppercase tracking-wider text-acaf-sage">
-              Fomento Patrimonial
+              Associados
             </h4>
             <div className="mt-1 flex items-baseline gap-1">
-              <span className="text-2xl font-serif font-bold text-acaf-forest">R$ 4.2B</span>
+              <span className="text-4xl font-serif font-bold text-acaf-forest">+ 150</span>
+              <span className="text-[14px] font-mono text-acaf-sage/80 font-light ml-1">corporações</span>
             </div>
             
             {/* Visual Mini Sparkline (SVG) */}
@@ -114,7 +131,7 @@ export const Hero: React.FC = () => {
               <svg className="w-full h-full" viewBox="0 0 100 30" fill="none">
                 <path
                   d="M0,25 Q15,10 30,22 T60,5 T90,12 T100,2"
-                  stroke="#3D7F61"
+                  stroke="#0D3C1F"
                   strokeWidth="2"
                   fill="none"
                 />
@@ -123,27 +140,22 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Floating Card 3: Governance Metrics (Center-Right) */}
-          <div className="absolute top-1/3 -right-2 bg-white/75 backdrop-blur-md border border-acaf-forest/10 p-4 rounded-xl shadow-lg shadow-acaf-forest/5 w-48 animate-float-delayed">
-            <div className="flex items-center gap-2 mb-2">
-              <Landmark className="w-4 h-4 text-acaf-sage" />
-              <h4 className="font-mono text-[12px] uppercase tracking-widest text-acaf-sage">
-                Governança
-              </h4>
+          {/* Floating Card 3: Parceiros (Center-Right) */}
+          <div className="absolute top-1/3 -right-2 bg-white/75 backdrop-blur-md border border-acaf-forest/10 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-52 animate-float-delayed">
+            <div className="flex items-center justify-between mb-3">
+              <div className="p-2 bg-acaf-forest/5 rounded-lg text-acaf-forest">
+                <Landmark className="w-5 h-5" />
+              </div>
+              <span className="font-mono text-[11px] text-acaf-coral uppercase tracking-wider font-semibold">
+                Integração
+              </span>
             </div>
-            <div className="space-y-1.5">
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-acaf-emerald rounded-full"></div>
-                <span className="text-[13px] text-acaf-forest font-medium">Auditoria Externa</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-acaf-emerald rounded-full"></div>
-                <span className="text-[13px] text-acaf-forest font-medium">LGPD Strict Standard</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-acaf-emerald rounded-full"></div>
-                <span className="text-[13px] text-acaf-forest font-medium">Balanço Transparente</span>
-              </div>
+            <h4 className="font-mono text-[13px] uppercase tracking-wider text-acaf-sage">
+              Parceiros
+            </h4>
+            <div className="mt-1 flex items-baseline gap-1">
+              <span className="text-3xl font-serif font-bold text-acaf-forest">+50</span>
+              <span className="text-[12px] font-mono text-acaf-sage/80 font-light ml-1">marcas</span>
             </div>
           </div>
 
