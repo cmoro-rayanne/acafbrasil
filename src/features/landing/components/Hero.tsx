@@ -123,7 +123,7 @@ export const Hero: React.FC = () => {
           {/* Floating Card 2: Associados (Bottom-Right) */}
           <div 
             onMouseMove={handleMouseMove}
-            className="lg:!absolute relative lg:bottom-[12px] lg:right-[46px] mx-auto lg:mx-0 bg-[#D5DBD1]/90 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-full max-w-[250px] lg:w-[250px] animate-float-slow flashlight-card group cursor-default"
+            className="lg:!absolute relative lg:bottom-[32px] lg:right-[76px] mx-auto lg:mx-0 bg-[#D5DBD1]/90 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-full max-w-[250px] lg:w-[250px] animate-float-slow flashlight-card group cursor-default"
           >
             <div className="flex items-center gap-2 mb-3">
               <div className="p-2 bg-acaf-forest rounded-lg text-white">
@@ -155,7 +155,7 @@ export const Hero: React.FC = () => {
           {/* Floating Card 3: Parceiros (Center-Right) */}
           <div 
             onMouseMove={handleMouseMove}
-            className="lg:!absolute relative lg:top-[187px] lg:left-[296px] mx-auto lg:mx-0 bg-white/60 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-full max-w-[200px] lg:w-[200px] animate-float-delayed flashlight-card group cursor-default"
+            className="lg:!absolute relative lg:top-[217px] lg:left-[296px] mx-auto lg:mx-0 bg-white/60 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-full max-w-[200px] lg:w-[200px] animate-float-delayed flashlight-card group cursor-default"
           >
             <div className="flex items-center gap-2 mb-3">
               <div className="p-2 bg-acaf-forest/5 rounded-lg text-acaf-coral">
