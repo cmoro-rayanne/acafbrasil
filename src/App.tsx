@@ -12,9 +12,12 @@ import { Footer } from './features/landing/components/Footer';
 import { PartnersPage } from './features/landing/components/PartnersPage';
 import { BoardPage } from './features/landing/components/BoardPage';
 import { AssociatesPage } from './features/landing/components/AssociatesPage';
+import { NewsPage } from './features/landing/components/NewsPage';
+import { NewsDetailPage } from './features/landing/components/NewsDetailPage';
 
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<'landing' | 'partners' | 'board' | 'associates'>('landing');
+  const [currentView, setCurrentView] = useState<'landing' | 'partners' | 'board' | 'associates' | 'news-list' | 'news-detail'>('landing');
+  const [selectedArticleId, setSelectedArticleId] = useState<string>('1');
 
   // IntersectionObserver to trigger scroll-reveal animations
   useEffect(() => {
@@ -61,6 +64,14 @@ const App: React.FC = () => {
       } else if (hash === '#/associados') {
         setCurrentView('associates');
         window.scrollTo(0, 0);
+      } else if (hash === '#/noticias') {
+        setCurrentView('news-list');
+        window.scrollTo(0, 0);
+      } else if (hash.startsWith('#/noticia/')) {
+        const id = hash.replace('#/noticia/', '');
+        setSelectedArticleId(id);
+        setCurrentView('news-detail');
+        window.scrollTo(0, 0);
       } else {
         setCurrentView('landing');
       }
@@ -81,6 +92,14 @@ const App: React.FC = () => {
 
   if (currentView === 'associates') {
     return <AssociatesPage />;
+  }
+
+  if (currentView === 'news-list') {
+    return <NewsPage />;
+  }
+
+  if (currentView === 'news-detail') {
+    return <NewsDetailPage articleId={selectedArticleId} />;
   }
 
   return (

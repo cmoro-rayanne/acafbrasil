@@ -1,7 +1,9 @@
 import React from 'react';
 import { Calendar, ArrowRight } from 'lucide-react';
+import { newsArticles } from './newsData';
 
-interface NewsCardProps {
+export interface NewsCardProps {
+  id: string;
   image: string;
   date: string;
   tag: string;
@@ -9,7 +11,7 @@ interface NewsCardProps {
   description: string;
 }
 
-const NewsCard: React.FC<NewsCardProps> = ({ image, date, tag, title, description }) => {
+export const NewsCard: React.FC<NewsCardProps> = ({ id, image, date, tag, title, description }) => {
   return (
     <div className="group flex flex-col bg-white rounded-md overflow-hidden border border-[#0D3C1F]/10 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1.5 hover:shadow-xl h-full">
       {/* Image Header */}
@@ -43,39 +45,21 @@ const NewsCard: React.FC<NewsCardProps> = ({ image, date, tag, title, descriptio
         </div>
 
         {/* Link */}
-        <div className="flex items-center gap-1 text-[11px] font-mono uppercase tracking-widest text-[#0D3C1F] group-hover:text-[#F69066] transition-colors duration-300 border-t border-[#0D3C1F]/5 pt-4">
+        <a 
+          href={`#/noticia/${id}`}
+          className="flex items-center gap-1 text-[11px] font-mono uppercase tracking-widest text-[#0D3C1F] group-hover:text-[#F69066] transition-colors duration-300 border-t border-[#0D3C1F]/5 pt-4 mt-auto cursor-pointer"
+        >
           <span>Ler Artigo Completo</span>
           <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
-        </div>
+        </a>
       </div>
     </div>
   );
 };
 
 export const News: React.FC = () => {
-  const articles = [
-    {
-      image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop",
-      date: "18 de Junho, 2026",
-      tag: "Regulatório",
-      title: "ACAF Brasil debate novas regras sanitárias e de acessibilidade com órgãos técnicos",
-      description: "Debate detalhado sobre conformidade de climatização, qualidade do ar e normas de acesso facilitado para estúdios e academias de grande porte."
-    },
-    {
-      image: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=600&auto=format&fit=crop",
-      date: "12 de Junho, 2026",
-      tag: "Mercado",
-      title: "Crescimento de centros de treinamento funcional bate recorde histórico nacional",
-      description: "Estudo semestral divulgado aponta alta demanda e faturamento recorde em academias e boxes focados em treinos personalizados e de alta intensidade."
-    },
-    {
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop",
-      date: "05 de Junho, 2026",
-      tag: "Gestão",
-      title: "ACAF lança guia prático de precificação e inteligência financeira para associados",
-      description: "Um manual completo desenvolvido por auditores especializados para auxiliar gestores no cálculo de ponto de equilíbrio, margem operacional e fluxo de caixa."
-    }
-  ];
+  // Take first 3 articles to show on landing page
+  const featuredArticles = newsArticles.slice(0, 3);
 
   return (
     <section id="noticias" className="relative py-20 md:py-32 px-6 md:px-16 bg-[#FAF9F6] border-b border-acaf-forest/10 overflow-hidden reveal">
@@ -104,9 +88,21 @@ export const News: React.FC = () => {
 
         {/* News Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {articles.map((art, idx) => (
-            <NewsCard key={idx} {...art} />
+          {featuredArticles.map((art) => (
+            <NewsCard key={art.id} {...art} />
           ))}
+        </div>
+
+        {/* Veja Mais Button */}
+        <div className="mt-16 text-center">
+          <a
+            href="#/noticias"
+            className="btn-slide-reveal group inline-flex items-center gap-2 bg-[#0D3C1F] text-[#FAF9F6] px-8 py-4 text-xs font-mono uppercase tracking-[0.15em] transition-all hover:text-[#0D3C1F]"
+            style={{ '--slide-color': '#FAF9F6' } as React.CSSProperties}
+          >
+            Veja Mais Notícias
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
         </div>
       </div>
     </section>
