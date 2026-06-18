@@ -11,9 +11,10 @@ import { Contact } from './features/landing/components/Contact';
 import { Footer } from './features/landing/components/Footer';
 import { PartnersPage } from './features/landing/components/PartnersPage';
 import { BoardPage } from './features/landing/components/BoardPage';
+import { AssociatesPage } from './features/landing/components/AssociatesPage';
 
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<'landing' | 'partners' | 'board'>('landing');
+  const [currentView, setCurrentView] = useState<'landing' | 'partners' | 'board' | 'associates'>('landing');
 
   // IntersectionObserver to trigger scroll-reveal animations
   useEffect(() => {
@@ -57,6 +58,9 @@ const App: React.FC = () => {
       } else if (hash === '#/diretoria' || hash === '#/diretoria-conselho') {
         setCurrentView('board');
         window.scrollTo(0, 0);
+      } else if (hash === '#/associados') {
+        setCurrentView('associates');
+        window.scrollTo(0, 0);
       } else {
         setCurrentView('landing');
       }
@@ -73,6 +77,10 @@ const App: React.FC = () => {
 
   if (currentView === 'board') {
     return <BoardPage />;
+  }
+
+  if (currentView === 'associates') {
+    return <AssociatesPage />;
   }
 
   return (

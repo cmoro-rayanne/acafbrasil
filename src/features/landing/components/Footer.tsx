@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
               </a>
             </li>
             <li>
-              <a href="#associates" className="link-underline-hover hover:text-acaf-forest transition-colors">
+              <a href="#/associados" className="link-underline-hover hover:text-acaf-forest transition-colors">
                 Associados
               </a>
             </li>
