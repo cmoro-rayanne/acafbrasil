@@ -107,45 +107,6 @@ export const Contact: React.FC = () => {
               </p>
             </div>
           </div>
-
-          {/* Contact Details */}
-          <div className="space-y-6 border-t border-acaf-forest/10 pt-8 mt-auto text-acaf-sage text-[15px] font-light">
-            <span className="font-mono text-[11px] uppercase tracking-wider text-acaf-coral block mb-2 font-semibold">
-              Sempre que precisar ou tiver alguma dúvida, segue os nossos contatos:
-            </span>
-
-            {/* Comercial e Administrativo */}
-            <div className="bg-white border border-acaf-forest/5 p-5 rounded-sm">
-              <span className="block font-sans font-semibold text-acaf-forest text-[14px] uppercase tracking-wider mb-2">
-                Comercial e Administrativo
-              </span>
-              <p className="mb-1"><strong>Contato:</strong> Dona Bela</p>
-              <p className="mb-1">
-                <strong>E-mail:</strong> <a href="mailto:acafbr.contato@gmail.com" className="hover:underline text-acaf-forest font-normal">acafbr.contato@gmail.com</a>
-              </p>
-              <p>
-                <strong>WhatsApp:</strong> <a href="tel:+554198866616" className="hover:underline text-acaf-forest font-normal">(41) 9886-6616</a>
-              </p>
-            </div>
-
-            {/* Assessoria Jurídica */}
-            <div className="bg-white border border-acaf-forest/5 p-5 rounded-sm">
-              <span className="block font-sans font-semibold text-acaf-forest text-[14px] uppercase tracking-wider mb-2">
-                Assessoria Jurídica
-              </span>
-              <p className="mb-1 font-normal text-acaf-forest">Cavet & Castamann Sociedade de Advogados</p>
-              <p className="mb-1"><strong>Contato:</strong> Gioser Antonio Olivette Cavet</p>
-              <p className="mb-1">
-                <strong>E-mail:</strong> <a href="mailto:gioser@cecadvogados.com.br" className="hover:underline text-acaf-forest font-normal">gioser@cecadvogados.com.br</a>
-              </p>
-              <p className="mb-1">
-                <strong>Endereço:</strong> <span className="text-acaf-forest">AL. Augusto Stellfeld, 1314 (esq. Pres. Taunay), Bigorrilho, CEP 80430-140, Curitiba, PR</span>
-              </p>
-              <p>
-                <strong>Telefone:</strong> <a href="tel:+554130191156" className="hover:underline text-acaf-forest font-normal">(41) 3019-1156</a>
-              </p>
-            </div>
-          </div>
         </div>
 
         {/* Right Side: Minimalist High-Conversion Form */}

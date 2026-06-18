@@ -8,6 +8,7 @@ import { Prestige } from './features/landing/components/Prestige';
 import { Associates } from './features/landing/components/Associates';
 import { News } from './features/landing/components/News';
 import { Contact } from './features/landing/components/Contact';
+import { SupportContacts } from './features/landing/components/SupportContacts';
 import { Footer } from './features/landing/components/Footer';
 import { PartnersPage } from './features/landing/components/PartnersPage';
 import { BoardPage } from './features/landing/components/BoardPage';
@@ -166,6 +167,11 @@ const App: React.FC = () => {
         {/* Contact Section */}
         <div className="reveal-up delay-100">
           <Contact />
+        </div>
+
+        {/* Support Contacts Section */}
+        <div className="reveal-up delay-100">
+          <SupportContacts />
         </div>
 
         {/* Partners Section */}
