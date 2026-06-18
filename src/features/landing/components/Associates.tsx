@@ -115,12 +115,9 @@ export const Associates: React.FC = () => {
             Ecossistema ACAF
           </span>
           <h2 className="text-3xl md:text-4xl font-sans font-semibold text-[#F8FAF7] leading-tight tracking-tight">
-            Associados & <span className="font-serif italic font-normal text-[#C5A880]">Parceiros Globais</span>
+            Associados
           </h2>
-          <div className="w-20 h-[1.5px] bg-[#C5A880]/40 mx-auto mt-4 mb-6"></div>
-          <p className="text-[17px] text-[#F8FAF7]/70 leading-relaxed font-light">
-            Mais de 150 corporações, gestoras de capital, firmas de auditoria e instituições acadêmicas líderes de mercado conectadas à nossa governança.
-          </p>
+          <div className="w-20 h-[1.5px] bg-[#C5A880]/40 mx-auto mt-4"></div>
         </div>
       </div>
 

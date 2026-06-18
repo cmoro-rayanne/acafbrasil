@@ -78,7 +78,7 @@ export const News: React.FC = () => {
             Notícias e Eventos
           </span>
           <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#0D3C1F] leading-tight tracking-tight">
-            Notícias e Eventos
+            Últimas do setor
           </h2>
           <div className="w-16 h-[2px] bg-[#C5A880] mt-6 mb-4"></div>
           <p className="text-[17px] text-[#4A6B5A] leading-relaxed font-light">

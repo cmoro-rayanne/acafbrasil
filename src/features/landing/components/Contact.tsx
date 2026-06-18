@@ -110,7 +110,7 @@ export const Contact: React.FC = () => {
         </div>
 
         {/* Right Side: Minimalist High-Conversion Form */}
-        <div className="lg:col-span-7 bg-[#FAF9F6] border border-acaf-forest/10 p-8 md:p-12 relative">
+        <div className="lg:col-span-7 bg-[#D5DBD1] border border-acaf-forest/10 border-t-2 border-t-acaf-forest p-8 md:p-12 relative">
           
           {isSubmitted ? (
             /* Success Feedback Layout */
@@ -126,8 +126,8 @@ export const Contact: React.FC = () => {
               </p>
               <button
                 onClick={() => setIsSubmitted(false)}
-                className="btn-slide-reveal px-6 py-3 border border-acaf-forest text-acaf-forest text-xs font-mono uppercase tracking-widest transition-all"
-                style={{ '--slide-color': '#FAF9F6' } as React.CSSProperties}
+                className="btn-slide-reveal px-6 py-3 border border-acaf-forest text-acaf-forest text-xs font-mono uppercase tracking-widest transition-all cursor-pointer"
+                style={{ '--slide-color': '#D5DBD1' } as React.CSSProperties}
               >
                 Enviar nova mensagem
               </button>
@@ -241,7 +241,7 @@ export const Contact: React.FC = () => {
                 type="submit"
                 disabled={isSubmitting}
                 className="btn-slide-reveal group w-full bg-acaf-forest text-acaf-sand py-4 text-xs font-mono uppercase tracking-widest hover:text-acaf-forest transition-all flex items-center justify-center gap-2 cursor-pointer"
-                style={{ '--slide-color': '#FAF9F6' } as React.CSSProperties}
+                style={{ '--slide-color': '#D5DBD1' } as React.CSSProperties}
               >
                 {isSubmitting ? 'Enviando...' : 'Enviar solicitação'}
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
