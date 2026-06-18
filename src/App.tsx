@@ -14,9 +14,11 @@ import { BoardPage } from './features/landing/components/BoardPage';
 import { AssociatesPage } from './features/landing/components/AssociatesPage';
 import { NewsPage } from './features/landing/components/NewsPage';
 import { NewsDetailPage } from './features/landing/components/NewsDetailPage';
+import { InternalRegulationPage } from './features/landing/components/InternalRegulationPage';
+import { SocialStatutePage } from './features/landing/components/SocialStatutePage';
 
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<'landing' | 'partners' | 'board' | 'associates' | 'news-list' | 'news-detail'>('landing');
+  const [currentView, setCurrentView] = useState<'landing' | 'partners' | 'board' | 'associates' | 'news-list' | 'news-detail' | 'regulation' | 'statute'>('landing');
   const [selectedArticleId, setSelectedArticleId] = useState<string>('1');
 
   // IntersectionObserver to trigger scroll-reveal animations
@@ -72,6 +74,12 @@ const App: React.FC = () => {
         setSelectedArticleId(id);
         setCurrentView('news-detail');
         window.scrollTo(0, 0);
+      } else if (hash === '#/regimento-interno') {
+        setCurrentView('regulation');
+        window.scrollTo(0, 0);
+      } else if (hash === '#/estatuto-social') {
+        setCurrentView('statute');
+        window.scrollTo(0, 0);
       } else {
         setCurrentView('landing');
       }
@@ -100,6 +108,14 @@ const App: React.FC = () => {
 
   if (currentView === 'news-detail') {
     return <NewsDetailPage articleId={selectedArticleId} />;
+  }
+
+  if (currentView === 'regulation') {
+    return <InternalRegulationPage />;
+  }
+
+  if (currentView === 'statute') {
+    return <SocialStatutePage />;
   }
 
   return (

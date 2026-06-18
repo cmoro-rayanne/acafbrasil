@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Mail, Phone, MapPin, CheckCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle, ArrowRight } from 'lucide-react';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'O nome do responsável deve ter pelo menos 2 caracteres.' }),
@@ -58,8 +58,8 @@ export const Contact: React.FC = () => {
         {/* Left Side: Contact Information */}
         <div className="lg:col-span-5 flex flex-col justify-between">
           <div>
-            <span className="font-mono text-[15px] uppercase tracking-[0.25em] text-acaf-coral mb-4 block">
-              Associação
+            <span className="font-mono text-[15px] uppercase tracking-[0.25em] text-acaf-coral mb-4 block font-semibold">
+              QUERO ME ASSOCIAR AGORA
             </span>
             <h2 className="text-3xl md:text-4xl font-sans font-semibold text-acaf-forest leading-tight tracking-tight mb-8">
               Solicite sua <span className="font-serif italic font-normal text-acaf-emerald">associação</span>
@@ -67,7 +67,7 @@ export const Contact: React.FC = () => {
             <p className="text-[17px] text-acaf-sage leading-relaxed mb-6 font-light max-w-sm">
               Preencha os dados ao lado e nossa equipe entrará em contato em até 48h úteis para apresentar os planos e o processo de adesão.
             </p>
-            <ul className="space-y-3 mb-12 text-[17px] text-acaf-sage font-light max-w-sm">
+            <ul className="space-y-3 mb-10 text-[17px] text-acaf-sage font-light max-w-sm">
               <li className="flex items-center gap-3">
                 <span className="w-1.5 h-1.5 bg-[#C5A880] rounded-full shrink-0"></span>
                 <span>Sem carência, sem multa de cancelamento</span>
@@ -81,44 +81,69 @@ export const Contact: React.FC = () => {
                 <span>Acesso imediato à área de associados</span>
               </li>
             </ul>
+
+            {/* Bloco de Pagamento */}
+            <div className="bg-[#F0EAE1]/40 border border-[#C5A880]/30 p-6 rounded-sm mb-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-16 h-16 bg-[#C5A880]/5 rounded-bl-full pointer-events-none" />
+              <span className="block font-mono text-xs uppercase tracking-wider text-acaf-coral mb-3 font-semibold">
+                PAGAMENTO:
+              </span>
+              <ul className="space-y-2 text-[15px] text-acaf-sage font-light mb-4">
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-[#C5A880] rounded-full shrink-0 mt-2"></span>
+                  <span><strong>Adesão:</strong> 3 mensalidades</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-[#C5A880] rounded-full shrink-0 mt-2"></span>
+                  <span><strong>Mensalidade ACAF:</strong> R$ 70,00 mensais</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-[#C5A880] rounded-full shrink-0 mt-2"></span>
+                  <span><strong>Mensalidade ASSESSORIA JURÍDICA:</strong> R$ 80,00 mensais – <em>este boleto será emitido diretamente pela assessoria</em>.</span>
+                </li>
+              </ul>
+              <p className="text-[13px] font-mono text-acaf-sage/80 leading-relaxed border-t border-acaf-forest/10 pt-3">
+                Caso você tenha um cupom de desconto, insira na próxima página.
+              </p>
+            </div>
           </div>
 
           {/* Contact Details */}
-          <div className="space-y-6 border-t border-acaf-forest/10 pt-8 mt-auto">
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-acaf-forest/5 flex items-center justify-center text-acaf-forest">
-                <Mail className="w-4 h-4" />
-              </div>
-              <div>
-                <span className="font-mono text-[15px] uppercase tracking-wider text-acaf-sage block">E-mail Corporativo</span>
-                <a href="mailto:acafbr.contato@gmail.com" className="text-[17px] font-semibold text-acaf-forest hover:underline">
-                  acafbr.contato@gmail.com
-                </a>
-              </div>
+          <div className="space-y-6 border-t border-acaf-forest/10 pt-8 mt-auto text-acaf-sage text-[15px] font-light">
+            <span className="font-mono text-[11px] uppercase tracking-wider text-acaf-coral block mb-2 font-semibold">
+              Sempre que precisar ou tiver alguma dúvida, segue os nossos contatos:
+            </span>
+
+            {/* Comercial e Administrativo */}
+            <div className="bg-white border border-acaf-forest/5 p-5 rounded-sm">
+              <span className="block font-sans font-semibold text-acaf-forest text-[14px] uppercase tracking-wider mb-2">
+                Comercial e Administrativo
+              </span>
+              <p className="mb-1"><strong>Contato:</strong> Dona Bela</p>
+              <p className="mb-1">
+                <strong>E-mail:</strong> <a href="mailto:acafbr.contato@gmail.com" className="hover:underline text-acaf-forest font-normal">acafbr.contato@gmail.com</a>
+              </p>
+              <p>
+                <strong>WhatsApp:</strong> <a href="tel:+554198866616" className="hover:underline text-acaf-forest font-normal">(41) 9886-6616</a>
+              </p>
             </div>
 
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-acaf-forest/5 flex items-center justify-center text-acaf-forest">
-                <Phone className="w-4 h-4" />
-              </div>
-              <div>
-                <span className="font-mono text-[15px] uppercase tracking-wider text-acaf-sage block">Telefone</span>
-                <a href="tel:+551130004000" className="text-[17px] font-semibold text-acaf-forest hover:underline">
-                  +55 (11) 3000-4000
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-acaf-forest/5 flex items-center justify-center text-acaf-forest">
-                <MapPin className="w-4 h-4" />
-              </div>
-              <div>
-                <span className="font-mono text-[15px] uppercase tracking-wider text-acaf-sage block">Endereço</span>
-                <span className="text-[17px] font-semibold text-acaf-forest">
-                  Curitiba, PR
-                </span>
-              </div>
+            {/* Assessoria Jurídica */}
+            <div className="bg-white border border-acaf-forest/5 p-5 rounded-sm">
+              <span className="block font-sans font-semibold text-acaf-forest text-[14px] uppercase tracking-wider mb-2">
+                Assessoria Jurídica
+              </span>
+              <p className="mb-1 font-normal text-acaf-forest">Cavet & Castamann Sociedade de Advogados</p>
+              <p className="mb-1"><strong>Contato:</strong> Gioser Antonio Olivette Cavet</p>
+              <p className="mb-1">
+                <strong>E-mail:</strong> <a href="mailto:gioser@cecadvogados.com.br" className="hover:underline text-acaf-forest font-normal">gioser@cecadvogados.com.br</a>
+              </p>
+              <p className="mb-1">
+                <strong>Endereço:</strong> <span className="text-acaf-forest">AL. Augusto Stellfeld, 1314 (esq. Pres. Taunay), Bigorrilho, CEP 80430-140, Curitiba, PR</span>
+              </p>
+              <p>
+                <strong>Telefone:</strong> <a href="tel:+554130191156" className="hover:underline text-acaf-forest font-normal">(41) 3019-1156</a>
+              </p>
             </div>
           </div>
         </div>

@@ -108,8 +108,8 @@ export const Footer: React.FC = () => {
           </div>
         </div>
         <div className="flex gap-6">
-          <a href="#" className="hover:text-acaf-forest">Privacidade</a>
-          <a href="#" className="hover:text-acaf-forest">Termos de Uso</a>
+          <a href="#/regimento-interno" className="hover:text-acaf-forest">Regimento Interno</a>
+          <a href="#/estatuto-social" className="hover:text-acaf-forest">Estatuto Social</a>
         </div>
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
