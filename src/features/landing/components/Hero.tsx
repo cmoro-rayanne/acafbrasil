@@ -63,10 +63,10 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Right Side: Floating Analytical Panels & Structural Layout */}
-        <div className="lg:col-span-5 relative h-[500px] flex items-center justify-center">
+        <div className="lg:col-span-5 relative flex flex-col lg:block h-auto lg:h-[500px] gap-4 lg:gap-0 mt-12 lg:mt-0 w-full">
           
           {/* Structural background box with border & layout details */}
-          <div className="absolute inset-0 border border-acaf-forest/5 bg-acaf-forest/[0.01] rounded-2xl flex items-center justify-center">
+          <div className="hidden lg:flex absolute inset-0 border border-acaf-forest/5 bg-acaf-forest/[0.01] rounded-2xl items-center justify-center">
             {/* Fine architectural lines */}
             <div className="absolute w-full h-[1px] bg-acaf-forest/5 top-1/4"></div>
             <div className="absolute w-full h-[1px] bg-acaf-forest/5 top-3/4"></div>
@@ -82,7 +82,7 @@ export const Hero: React.FC = () => {
           {/* Floating Card 1: Benefícios (Top-Left) */}
           <div 
             onMouseMove={handleMouseMove}
-            className="!absolute top-6 left-4 bg-acaf-forest/80 backdrop-blur-md border border-white/20 p-6 rounded-xl shadow-lg shadow-acaf-forest/20 w-[300px] animate-float text-white flashlight-card dark-card group cursor-default"
+            className="lg:!absolute relative lg:top-6 lg:left-4 mx-auto lg:mx-0 bg-acaf-forest/80 backdrop-blur-md border border-white/20 p-6 rounded-xl shadow-lg shadow-acaf-forest/20 w-full max-w-[300px] lg:w-[300px] animate-float text-white flashlight-card dark-card group cursor-default"
           >
             <div className="flex items-center gap-2 mb-3">
               <div className="p-2 bg-white/10 rounded-lg text-[#FAF9F6]">
@@ -123,19 +123,19 @@ export const Hero: React.FC = () => {
           {/* Floating Card 2: Associados (Bottom-Right) */}
           <div 
             onMouseMove={handleMouseMove}
-            className="!absolute bottom-[2px] right-4 bg-[#D5DBD1]/90 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-[250px] animate-float-slow flashlight-card group cursor-default"
+            className="lg:!absolute relative lg:bottom-[2px] lg:right-4 mx-auto lg:mx-0 bg-[#D5DBD1]/90 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-full max-w-[250px] lg:w-[250px] animate-float-slow flashlight-card group cursor-default"
           >
             <div className="flex items-center gap-2 mb-3">
-              <div className="p-2 bg-acaf-forest/5 rounded-lg text-acaf-forest">
+              <div className="p-2 bg-acaf-forest rounded-lg text-white">
                 <TrendingUp className="w-5 h-5" />
               </div>
-              <span className="font-mono text-[13px] text-acaf-coral uppercase tracking-wider font-semibold">
+              <span className="font-mono text-[13px] text-acaf-forest uppercase tracking-wider font-semibold">
                 Crescimento
               </span>
             </div>
             <div className="mt-1 flex items-baseline gap-1">
               <span className="text-4xl font-serif font-bold text-acaf-forest">+ 150</span>
-              <span className="text-[14px] font-mono text-acaf-sage/80 font-light ml-1">associados</span>
+              <span className="text-[14px] font-mono text-acaf-sage/80 font-bold ml-1">associados</span>
             </div>
             
             {/* Visual Mini Sparkline (SVG) */}
@@ -155,10 +155,10 @@ export const Hero: React.FC = () => {
           {/* Floating Card 3: Parceiros (Center-Right) */}
           <div 
             onMouseMove={handleMouseMove}
-            className="!absolute top-1/3 left-[301px] bg-white/60 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-[200px] animate-float-delayed flashlight-card group cursor-default"
+            className="lg:!absolute relative lg:top-1/3 lg:left-[301px] mx-auto lg:mx-0 bg-white/60 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-full max-w-[200px] lg:w-[200px] animate-float-delayed flashlight-card group cursor-default"
           >
             <div className="flex items-center gap-2 mb-3">
-              <div className="p-2 bg-acaf-forest/5 rounded-lg text-[#0D3C1F]">
+              <div className="p-2 bg-acaf-forest/5 rounded-lg text-acaf-coral">
                 <Landmark className="w-5 h-5" />
               </div>
               <span className="font-mono text-[11px] text-acaf-coral uppercase tracking-wider font-semibold">
@@ -167,7 +167,7 @@ export const Hero: React.FC = () => {
             </div>
             <div className="mt-1 flex items-baseline gap-1">
               <span className="text-3xl font-serif font-bold text-acaf-forest">+50</span>
-              <span className="text-[12px] font-mono text-acaf-sage/80 font-light ml-1">parceiros</span>
+              <span className="text-[14px] font-mono text-acaf-sage/80 font-bold ml-1">parceiros</span>
             </div>
           </div>
 
