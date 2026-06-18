@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
               </a>
             </li>
             <li>
-              <a href="#parceiros" className="link-underline-hover hover:text-acaf-forest transition-colors">
+              <a href="#/parceiros" className="link-underline-hover hover:text-acaf-forest transition-colors">
                 Parceiros
               </a>
             </li>
@@ -57,7 +57,7 @@ export const Footer: React.FC = () => {
               </a>
             </li>
             <li>
-              <a href="#noticias" className="link-underline-hover hover:text-acaf-forest transition-colors">
+              <a href="#/noticias" className="link-underline-hover hover:text-acaf-forest transition-colors">
                 Notícias
               </a>
             </li>

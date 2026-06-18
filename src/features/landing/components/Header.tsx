@@ -27,7 +27,7 @@ export const Header: React.FC = () => {
           <a href="#sobre" className="link-underline-hover hover:text-acaf-forest transition-colors">
             Quem Somos
           </a>
-          <a href="#parceiros" className="link-underline-hover hover:text-acaf-forest transition-colors">
+          <a href="#/parceiros" className="link-underline-hover hover:text-acaf-forest transition-colors">
             Parceiros
           </a>
           <a href="#/associados" className="link-underline-hover hover:text-acaf-forest transition-colors">
@@ -36,7 +36,7 @@ export const Header: React.FC = () => {
           <a href="#/diretoria" className="link-underline-hover hover:text-acaf-forest transition-colors">
             Diretoria
           </a>
-          <a href="#noticias" className="link-underline-hover hover:text-acaf-forest transition-colors">
+          <a href="#/noticias" className="link-underline-hover hover:text-acaf-forest transition-colors">
             Notícias
           </a>
         </nav>
