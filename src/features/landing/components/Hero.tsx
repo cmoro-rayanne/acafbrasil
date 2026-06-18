@@ -82,7 +82,7 @@ export const Hero: React.FC = () => {
           {/* Floating Card 1: Benefícios (Top-Left) */}
           <div 
             onMouseMove={handleMouseMove}
-            className="absolute top-6 left-4 bg-acaf-forest/80 backdrop-blur-md border border-white/20 p-6 rounded-xl shadow-lg shadow-acaf-forest/20 w-[300px] animate-float text-white flashlight-card dark-card group cursor-default"
+            className="!absolute top-6 left-4 bg-acaf-forest/80 backdrop-blur-md border border-white/20 p-6 rounded-xl shadow-lg shadow-acaf-forest/20 w-[300px] animate-float text-white flashlight-card dark-card group cursor-default"
           >
             <div className="flex items-center gap-2 mb-3">
               <div className="p-2 bg-white/10 rounded-lg text-[#FAF9F6]">
@@ -123,7 +123,7 @@ export const Hero: React.FC = () => {
           {/* Floating Card 2: Associados (Bottom-Right) */}
           <div 
             onMouseMove={handleMouseMove}
-            className="absolute bottom-8 right-4 bg-white/60 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-64 animate-float-slow flashlight-card group cursor-default"
+            className="!absolute bottom-8 right-4 bg-white/60 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-[300px] animate-float-slow flashlight-card group cursor-default"
           >
             <div className="flex items-center justify-between mb-3">
               <div className="p-2 bg-acaf-forest/5 rounded-lg text-acaf-forest">
@@ -158,10 +158,10 @@ export const Hero: React.FC = () => {
           {/* Floating Card 3: Parceiros (Center-Right) */}
           <div 
             onMouseMove={handleMouseMove}
-            className="absolute top-1/3 -right-2 bg-white/60 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-52 animate-float-delayed flashlight-card group cursor-default"
+            className="!absolute top-1/3 -right-2 bg-white/60 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-[300px] animate-float-delayed flashlight-card group cursor-default"
           >
             <div className="flex items-center justify-between mb-3">
-              <div className="p-2 bg-acaf-forest/5 rounded-lg text-acaf-forest">
+              <div className="p-2 bg-acaf-forest/5 rounded-lg text-[#0D3C1F]">
                 <Landmark className="w-5 h-5" />
               </div>
               <span className="font-mono text-[11px] text-acaf-coral uppercase tracking-wider font-semibold">

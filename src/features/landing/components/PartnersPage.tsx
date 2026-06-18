@@ -1,8 +1,10 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { ArrowLeft, Search, X, Check } from 'lucide-react';
+import { ArrowLeft, Search, X, Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { PartnerCard, partnersData } from './Partners';
+
+const ITEMS_PER_PAGE = 24;
 
 // Categories list extracted from partnersData plus "Todos"
 const CATEGORIES = ["Todos", "Equipamentos", "Software", "Acessórios", "Segurança"];
@@ -19,6 +21,7 @@ export const PartnersPage: React.FC = () => {
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedState, setSelectedState] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close suggestions when clicking outside
@@ -31,6 +34,11 @@ export const PartnersPage: React.FC = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // Reset page to 1 when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, selectedCategory, selectedCity, selectedState]);
 
   // Compute suggestions based on input
   const suggestions = useMemo((): AutocompleteSuggestion[] => {
@@ -126,6 +134,21 @@ export const PartnersPage: React.FC = () => {
       return true;
     });
   }, [searchQuery, selectedCategory, selectedCity, selectedState]);
+
+  // Calculate pages count and paginated slice of partners
+  const totalPages = Math.ceil(filteredPartners.length / ITEMS_PER_PAGE);
+
+  const paginatedPartners = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    return filteredPartners.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [filteredPartners, currentPage]);
+
+  const handlePageChange = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+      window.scrollTo(0, 0);
+    }
+  };
 
   const handleClearAll = () => {
     setSearchQuery('');
@@ -306,11 +329,51 @@ export const PartnersPage: React.FC = () => {
 
         {/* Partners Static Grid filtered */}
         {filteredPartners.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {filteredPartners.map((partner, idx) => (
-              <PartnerCard key={idx} {...partner} />
-            ))}
-          </div>
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {paginatedPartners.map((partner, idx) => (
+                <PartnerCard key={idx} {...partner} />
+              ))}
+            </div>
+
+            {/* Pagination Controls */}
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-2 border-t border-acaf-forest/10 pt-10 mt-12">
+                {/* Prev Button */}
+                <button
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="w-10 h-10 border border-acaf-forest/15 rounded-full flex items-center justify-center text-acaf-forest hover:bg-acaf-forest hover:text-acaf-sand disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-acaf-forest transition-colors cursor-pointer select-none"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+
+                {/* Page Buttons */}
+                {Array.from({ length: totalPages }, (_, idx) => idx + 1).map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => handlePageChange(page)}
+                    className={`w-10 h-10 rounded-full font-mono text-[13px] tracking-wider transition-all select-none cursor-pointer ${
+                      currentPage === page
+                        ? 'bg-acaf-forest text-acaf-sand'
+                        : 'border border-acaf-forest/10 text-acaf-sage hover:border-acaf-forest hover:text-acaf-forest'
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+
+                {/* Next Button */}
+                <button
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="w-10 h-10 border border-acaf-forest/15 rounded-full flex items-center justify-center text-acaf-forest hover:bg-acaf-forest hover:text-acaf-sand disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-acaf-forest transition-colors cursor-pointer select-none"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            )}
+          </>
         ) : (
           /* Empty State */
           <div className="bg-[#FAF9F6] border border-acaf-forest/10 py-20 text-center rounded-sm">

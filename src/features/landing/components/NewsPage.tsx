@@ -5,7 +5,7 @@ import { Footer } from './Footer';
 import { NewsCard } from './News';
 import { newsArticles } from './newsData';
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 18;
 
 export const NewsPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);

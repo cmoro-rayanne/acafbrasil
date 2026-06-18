@@ -1,7 +1,9 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { ArrowLeft, Search, MapPin, X, Building2, Check } from 'lucide-react';
+import { ArrowLeft, Search, MapPin, X, Building2, Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Header } from './Header';
 import { Footer } from './Footer';
+
+const ITEMS_PER_PAGE = 36;
 
 // Define the structure of an Associate
 interface Associate {
@@ -173,6 +175,7 @@ export const AssociatesPage: React.FC = () => {
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedState, setSelectedState] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close suggestions dropdown when clicking outside
@@ -185,6 +188,11 @@ export const AssociatesPage: React.FC = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // Reset page to 1 when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, selectedCategory, selectedCity, selectedState]);
 
   // Compute Autocomplete Suggestions in real time
   const suggestions = useMemo((): AutocompleteSuggestion[] => {
@@ -281,6 +289,21 @@ export const AssociatesPage: React.FC = () => {
       return true;
     });
   }, [searchQuery, selectedCategory, selectedCity, selectedState]);
+
+  // Calculate pages count and paginated slice of associates
+  const totalPages = Math.ceil(filteredAssociates.length / ITEMS_PER_PAGE);
+
+  const paginatedAssociates = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    return filteredAssociates.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [filteredAssociates, currentPage]);
+
+  const handlePageChange = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+      window.scrollTo(0, 0);
+    }
+  };
 
   // Clear filters helper
   const handleClearAll = () => {
@@ -462,30 +485,70 @@ export const AssociatesPage: React.FC = () => {
 
         {/* Main Grid View */}
         {filteredAssociates.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredAssociates.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-white border border-acaf-forest/10 p-6 flex flex-col justify-between hover:border-acaf-forest/30 hover:shadow-md transition-all duration-300 group"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="text-[11px] font-mono uppercase tracking-widest text-acaf-coral font-semibold">
-                      {item.category}
-                    </span>
-                    <Building2 className="w-4 h-4 text-acaf-sage/30 group-hover:text-acaf-coral transition-colors" />
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {paginatedAssociates.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white border border-acaf-forest/10 p-6 flex flex-col justify-between hover:border-acaf-forest/30 hover:shadow-md transition-all duration-300 group"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <span className="text-[11px] font-mono uppercase tracking-widest text-acaf-coral font-semibold">
+                        {item.category}
+                      </span>
+                      <Building2 className="w-4 h-4 text-acaf-sage/30 group-hover:text-acaf-coral transition-colors" />
+                    </div>
+                    <h3 className="font-sans text-[19px] font-semibold text-acaf-forest mb-6 tracking-tight leading-snug group-hover:text-acaf-emerald transition-colors">
+                      {item.name}
+                    </h3>
                   </div>
-                  <h3 className="font-sans text-[19px] font-semibold text-acaf-forest mb-6 tracking-tight leading-snug group-hover:text-acaf-emerald transition-colors">
-                    {item.name}
-                  </h3>
+                  <div className="flex items-center gap-2 text-acaf-sage/70 font-mono text-[13px] border-t border-acaf-forest/5 pt-4 mt-auto">
+                    <MapPin className="w-3.5 h-3.5 text-acaf-coral" />
+                    <span>{item.city}, {item.state}</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2 text-acaf-sage/70 font-mono text-[13px] border-t border-acaf-forest/5 pt-4 mt-auto">
-                  <MapPin className="w-3.5 h-3.5 text-acaf-coral" />
-                  <span>{item.city}, {item.state}</span>
-                </div>
+              ))}
+            </div>
+
+            {/* Pagination Controls */}
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-2 border-t border-acaf-forest/10 pt-10 mt-12">
+                {/* Prev Button */}
+                <button
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="w-10 h-10 border border-acaf-forest/15 rounded-full flex items-center justify-center text-acaf-forest hover:bg-acaf-forest hover:text-acaf-sand disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-acaf-forest transition-colors cursor-pointer select-none"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+
+                {/* Page Buttons */}
+                {Array.from({ length: totalPages }, (_, idx) => idx + 1).map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => handlePageChange(page)}
+                    className={`w-10 h-10 rounded-full font-mono text-[13px] tracking-wider transition-all select-none cursor-pointer ${
+                      currentPage === page
+                        ? 'bg-acaf-forest text-acaf-sand'
+                        : 'border border-acaf-forest/10 text-acaf-sage hover:border-acaf-forest hover:text-acaf-forest'
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+
+                {/* Next Button */}
+                <button
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="w-10 h-10 border border-acaf-forest/15 rounded-full flex items-center justify-center text-acaf-forest hover:bg-acaf-forest hover:text-acaf-sand disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-acaf-forest transition-colors cursor-pointer select-none"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
               </div>
-            ))}
-          </div>
+            )}
+          </>
         ) : (
           /* Empty State */
           <div className="bg-[#FAF9F6] border border-acaf-forest/10 py-20 text-center rounded-sm">
