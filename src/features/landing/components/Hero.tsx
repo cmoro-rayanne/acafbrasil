@@ -123,7 +123,7 @@ export const Hero: React.FC = () => {
           {/* Floating Card 2: Associados (Bottom-Right) */}
           <div 
             onMouseMove={handleMouseMove}
-            className="!absolute bottom-8 right-4 bg-white/60 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-[300px] animate-float-slow flashlight-card group cursor-default"
+            className="!absolute bottom-[2px] right-4 bg-[#D5DBD1]/90 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-[250px] animate-float-slow flashlight-card group cursor-default"
           >
             <div className="flex items-center justify-between mb-3">
               <div className="p-2 bg-acaf-forest/5 rounded-lg text-acaf-forest">
@@ -158,7 +158,7 @@ export const Hero: React.FC = () => {
           {/* Floating Card 3: Parceiros (Center-Right) */}
           <div 
             onMouseMove={handleMouseMove}
-            className="!absolute top-1/3 -right-2 bg-white/60 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-[300px] animate-float-delayed flashlight-card group cursor-default"
+            className="!absolute top-1/3 left-[301px] bg-white/60 backdrop-blur-md border border-white/50 p-5 rounded-xl shadow-lg shadow-acaf-forest/5 w-[200px] animate-float-delayed flashlight-card group cursor-default"
           >
             <div className="flex items-center justify-between mb-3">
               <div className="p-2 bg-acaf-forest/5 rounded-lg text-[#0D3C1F]">
