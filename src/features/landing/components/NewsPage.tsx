@@ -5,7 +5,7 @@ import { Footer } from './Footer';
 import { NewsCard } from './News';
 import { newsArticles } from './newsData';
 
-const ITEMS_PER_PAGE = 4;
+const ITEMS_PER_PAGE = 6;
 
 export const NewsPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -67,7 +67,7 @@ export const NewsPage: React.FC = () => {
         </div>
 
         {/* Paginated Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {paginatedArticles.map((art) => (
             <NewsCard key={art.id} {...art} />
           ))}
