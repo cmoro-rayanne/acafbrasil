@@ -91,10 +91,10 @@ export const News: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#F69066] mb-4 block font-semibold">
-            Notícias
+            Notícias e Eventos
           </span>
           <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#0D3C1F] leading-tight tracking-tight">
-            Notícias & Artigos
+            Notícias e Eventos
           </h2>
           <div className="w-16 h-[2px] bg-[#C5A880] mt-6 mb-4"></div>
           <p className="text-[17px] text-[#4A6B5A] leading-relaxed font-light">

@@ -45,6 +45,8 @@ interface PartnerCardProps {
   website: string;
   instagram: string;
   linkedin: string;
+  city?: string;
+  state?: string;
 }
 
 export const PartnerCard: React.FC<PartnerCardProps> = ({
@@ -57,7 +59,9 @@ export const PartnerCard: React.FC<PartnerCardProps> = ({
   since,
   website,
   instagram,
-  linkedin
+  linkedin,
+  city,
+  state
 }) => {
   return (
     <div className="group relative flex flex-col bg-white rounded-md overflow-hidden transition-all duration-500 ease-out hover:scale-[1.03] hover:-translate-y-2 hover:shadow-2xl border border-[#0D3C1F]/10 h-full">
@@ -97,16 +101,16 @@ export const PartnerCard: React.FC<PartnerCardProps> = ({
               <span className="block text-[9px] font-mono tracking-wider text-[#0D3C1F]/40 uppercase">
                 Categoria
               </span>
-              <span className="block text-[12px] font-sans font-semibold text-[#0D3C1F] mt-0.5">
+              <span className="block text-[12px] font-sans font-semibold text-[#0D3C1F] mt-0.5 truncate" title={category}>
                 {category}
               </span>
             </div>
             <div>
               <span className="block text-[9px] font-mono tracking-wider text-[#0D3C1F]/40 uppercase">
-                Abrangência
+                Local
               </span>
-              <span className="block text-[12px] font-sans font-semibold text-[#0D3C1F] mt-0.5">
-                {coverage}
+              <span className="block text-[12px] font-sans font-semibold text-[#0D3C1F] mt-0.5 truncate" title={city ? `${city}, ${state}` : coverage}>
+                {city ? `${city}, ${state}` : coverage}
               </span>
             </div>
             <div>
@@ -171,7 +175,9 @@ export const partnersData = [
     since: "2001",
     website: "matrixfitness.com",
     instagram: "#",
-    linkedin: "#"
+    linkedin: "#",
+    city: "São Paulo",
+    state: "SP"
   },
   {
     index: "02 / 08",
@@ -184,7 +190,9 @@ export const partnersData = [
     since: "2016",
     website: "tecnofit.com.br",
     instagram: "#",
-    linkedin: "#"
+    linkedin: "#",
+    city: "Curitiba",
+    state: "PR"
   },
   {
     index: "03 / 08",
@@ -197,7 +205,9 @@ export const partnersData = [
     since: "2010",
     website: "reebokfitness.com.br",
     instagram: "#",
-    linkedin: "#"
+    linkedin: "#",
+    city: "São Paulo",
+    state: "SP"
   },
   {
     index: "04 / 08",
@@ -210,7 +220,9 @@ export const partnersData = [
     since: "2005",
     website: "pactosolucoes.com.br",
     instagram: "#",
-    linkedin: "#"
+    linkedin: "#",
+    city: "Goiânia",
+    state: "GO"
   },
   {
     index: "05 / 08",
@@ -223,7 +235,9 @@ export const partnersData = [
     since: "1999",
     website: "movement.com.br",
     instagram: "#",
-    linkedin: "#"
+    linkedin: "#",
+    city: "Manaus",
+    state: "AM"
   },
   {
     index: "06 / 08",
@@ -236,7 +250,9 @@ export const partnersData = [
     since: "2008",
     website: "w12.com.br",
     instagram: "#",
-    linkedin: "#"
+    linkedin: "#",
+    city: "São Paulo",
+    state: "SP"
   },
   {
     index: "07 / 08",
@@ -249,7 +265,9 @@ export const partnersData = [
     since: "1928",
     website: "speedo.com.br",
     instagram: "#",
-    linkedin: "#"
+    linkedin: "#",
+    city: "São Paulo",
+    state: "SP"
   },
   {
     index: "08 / 08",
@@ -262,7 +280,9 @@ export const partnersData = [
     since: "1993",
     website: "physicus.com.br",
     instagram: "#",
-    linkedin: "#"
+    linkedin: "#",
+    city: "Auriflama",
+    state: "SP"
   }
 ];
 
